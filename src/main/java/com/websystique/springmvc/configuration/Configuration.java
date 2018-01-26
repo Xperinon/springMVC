@@ -2,7 +2,7 @@ package com.websystique.springmvc.configuration;
 
 
 
-
-public class Configuration {
+@com.websystique.springmvc.configuration
+public class Configuration  extends Web{
 
 }
