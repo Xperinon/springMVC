@@ -1,12 +1,14 @@
 package com.websystique.springmvc.dao;
 
-import java.lang.reflect.Constructor;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
+import org.hibernate.sql.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.websystique.springmvc.model.User;
@@ -16,40 +18,46 @@ import com.websystique.springmvc.model.User;
 @Primary
 public class UserDaoImpl implements UserDao {
 
+
+	private HibernateTemplate hibernateTemplate;
 	
-	@Autowired EntityManager em;
+	
+	public void setHibernateTemplate(HibernateTemplate template) {
+		this.hibernateTemplate = template;
+	}
+	
 	
 	public UserDaoImpl () {
 		
 	}
 	public User findById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		List<?> results = hibernateTemplate.find("from User where id =", id);
+		// retourne le premier éléement avec l'id correspondant
+		return results.size() > 0 ? (User) results.get(0) : null;
 	}
 
 	public User findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		List<?> results = hibernateTemplate.find("from User where name =", name);
+		return results.size() > 0 ? (User) results.get(0) : null;
 	}
 
 	public void saveUser(User user) {
-		// TODO Auto-generated method stub
+		hibernateTemplate.save(user);
 		
 	}
 
 	public void updateUser(User user) {
-		// TODO Auto-generated method stub
+		hibernateTemplate.saveOrUpdate(user);
 		
 	}
 
 	public void deleteUser(long id) {
-		// TODO Auto-generated method stub
-		
+		hibernateTemplate.delete("from User where id =", id);
 	}
 
 	public List<User> getAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		List<?> users = hibernateTemplate.find("from User", null);
+		return (List<User>) users;
 	}
 
 	public void deleteAllUsers() {

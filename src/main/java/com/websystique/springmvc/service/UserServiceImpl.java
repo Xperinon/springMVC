@@ -3,58 +3,69 @@ package com.websystique.springmvc.service;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.websystique.springmvc.dao.UserDao;
 import com.websystique.springmvc.model.User;
 
 
 @Service @Transactional
 public class UserServiceImpl implements UserService {
 
-	private static final AtomicLong counter = new AtomicLong();
 	
-	private static List<User> users;
+	@Autowired
+	UserDao userDao;
+	
+//	private static final AtomicLong counter = new AtomicLong();
+
+//	private static List<User> users;
 	
 	
 	public User findById(long id) {
-	
-		return null;
+		User userCurrent = userDao.findById(id);
+		return userCurrent;
 	}
 
 	public User findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		User userCurrent = userDao.findByName(name);
+		
+		return userCurrent;
 	}
 
 	public void saveUser(User user) {
-		// TODO Auto-generated method stub
-		
+		userDao.saveUser(user);	
 	}
 
 	public void updateUser(User user) {
-		// TODO Auto-generated method stub
+		userDao.updateUser(user);
 		
 	}
 
 	public void deleteUser(long id) {
-		// TODO Auto-generated method stub
+		for(User userCurrent : userDao.getAllUsers()) {
+			if(userCurrent.getId() == id) {
+				userDao.getAllUsers().remove(userCurrent);
+			}
+		}
 		
+		userDao.deleteUser(id);
 	}
 
 	public List<User> getAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		List<User> users = userDao.getAllUsers();
+		return users;
 	}
 
 	public void deleteAllUsers() {
-		// TODO Auto-generated method stub
+		userDao.getAllUsers().clear();
 		
 	}
 
 	public boolean isUserExist(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return findByName(user.getUserName()) != null;
 	}
 
 }

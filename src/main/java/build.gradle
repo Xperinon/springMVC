@@ -1,0 +1,20 @@
+apply plugin : 'java'
+apply plugin : 'idea'
+
+version ='1.0.0-SNAPSHOT'
+
+jar{
+baseName = 'com.websystique.springmvc' 
+}
+repositories {
+mavenLocal()
+mavenCentral()
+}
+
+dependencies {
+compile("org.springframework.boot:spring-boot-starter-web:1.1.5.RELEASE")
+}
+
+task wrapper(type : Wrapper){
+gradleVersion = '1.11'
+}
