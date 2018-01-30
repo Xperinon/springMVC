@@ -1,21 +1,29 @@
-package com.websystique.springmvc.model;
+package com.websystique.springmvc.app.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+//package com.websystique.springmvc.model;
+//
 
 
-import java.util.Map;
-
-import org.hibernate.annotations.Table;
-
-@Table(appliesTo = "")
-
+@Entity
+@Table(name = "User")
 public class User {
 
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@NotNull
 	private String userName;
-	
+	@NotNull
 	private String address;
-	
+	@NotNull
 	private String email;
 	
 	

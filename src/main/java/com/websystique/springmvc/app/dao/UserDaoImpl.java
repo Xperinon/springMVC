@@ -1,4 +1,5 @@
-package com.websystique.springmvc.dao;
+package com.websystique.springmvc.app.dao;
+//package com.websystique.springmvc.dao;
 
 import java.util.List;
 
@@ -11,14 +12,14 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.websystique.springmvc.model.User;
+import com.websystique.springmvc.app.model.User;
 
 
 @Repository
 @Primary
 public class UserDaoImpl implements UserDao {
 
-
+	@Autowired
 	private HibernateTemplate hibernateTemplate;
 	
 	

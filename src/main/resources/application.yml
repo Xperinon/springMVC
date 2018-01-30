@@ -1,0 +1,9 @@
+
+logging.level:
+    com.websystique.springmvc.app: DEBUG
+    org.springframework: INFO
+
+files:
+    base: C:\Users\aatanasio\git\springMVC\src\main\java
+    in: ${files.base}/in @Value
+ 

@@ -1,5 +1,5 @@
-package com.websystique.springmvc.configuration;
-
+package com.websystique.springmvc.app.configuration;
+//
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @org.springframework.context.annotation.Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.websystique.springmvc")
+@ComponentScan(basePackages = "com.websystique.springmvc.app")
 public class Configuration  extends WebMvcConfigurerAdapter{
 
 	public void configureViewResolvers(ViewResolverRegistry registry) {
