@@ -34,7 +34,7 @@
             <link rel="stylesheet" href="<a class=" vglnk " href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css " rel="nofollow "><span>https</span><span>://</span><span>maxcdn</span><span>.</span><span>bootstrapcdn</span><span>.</span>
                 <span>com</span><span>/</span><span>bootstrap</span><span>/</span><span>3</span><span>.</span><span>3</span><span>.</span>
                 <span>5</span><span>/</span><span>css</span><span>/</span><span>bootstrap</span><span>.</span><span>min</span><span>.</span><span>css</span></a>">
-            <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+//            <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
         </head>
 
         <body ng-app="AngularJSApp" class="ng-cloak">

@@ -11,8 +11,17 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
-public class CORSFilter implements Filter{
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
+@Component
+public class CORSFilter implements Filter, CommandLineRunner{
+
+	
+	private static final Logger LOG = LoggerFactory.getLogger(CORSFilter.class);
+	
 	public void destroy() {}
 
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
@@ -26,5 +35,11 @@ public class CORSFilter implements Filter{
 	}
 
 	public void init(FilterConfig arg0) throws ServletException {}
+
+	@Override
+	public void run(String... arg0) throws Exception {
+		LOG.debug("CORSFilter");
+		
+	}
 
 }

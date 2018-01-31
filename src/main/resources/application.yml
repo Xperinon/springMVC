@@ -6,4 +6,8 @@ logging.level:
 files:
     base: C:\Users\aatanasio\git\springMVC\src\main\java
     in: ${files.base}/in @Value
+    
+    
+spring.data.mysql:
+    database: test
  

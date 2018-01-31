@@ -3,12 +3,12 @@ package com.websystique.springmvc.app.dao;
 
 import java.util.List;
 
-
+import org.springframework.data.jpa.repository.JpaRepository;
 import com.websystique.springmvc.app.model.User;
 
 
 
-public interface UserDao {
+public interface UserDao extends JpaRepository<User, Long>{
 
 	
 public User findById(long id);
