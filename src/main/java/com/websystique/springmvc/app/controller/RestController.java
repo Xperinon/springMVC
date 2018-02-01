@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.websystique.springmvc.app.IndexController;
 import com.websystique.springmvc.app.model.User;
 import com.websystique.springmvc.app.service.UserService;
 

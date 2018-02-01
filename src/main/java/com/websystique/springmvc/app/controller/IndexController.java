@@ -1,4 +1,4 @@
-package com.websystique.springmvc.app;
+package com.websystique.springmvc.app.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,22 +19,16 @@ import com.websystique.springmvc.app.model.User;
 
 @Controller
 @Component
-@SpringBootApplication 
 public class IndexController implements CommandLineRunner {
 
 	private static final Logger LOG = LoggerFactory.getLogger(IndexController.class);
 //	@RequestMapping(method = RequestMethod.GET)
 	@RequestMapping("/")
-	public ModelAndView home() {
+	public String index() {
 		LOG.debug("init application");
-		ModelAndView mav = new ModelAndView("index");
-		return mav;
+		return "index";
 		}
 	
-	public static void main(String[] args) throws Exception {
-		
-        SpringApplication.run(IndexController.class, args);
-    }
 
 	@Override
 	public void run(String... arg0) throws Exception {

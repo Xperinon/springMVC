@@ -9,7 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import com.websystique.springmvc.app.IndexController;
+import com.websystique.springmvc.app.controller.IndexController;
 
 @Component
 public class Intializer extends  AbstractAnnotationConfigDispatcherServletInitializer implements CommandLineRunner{
